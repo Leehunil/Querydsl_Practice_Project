@@ -7,11 +7,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 import study.querydsl.entity.Hello;
+import study.querydsl.entity.Member;
 import study.querydsl.entity.QHello;
+import study.querydsl.entity.QMember;
 
 import javax.persistence.EntityManager;
 
 import static org.assertj.core.api.Assertions.*;
+import static study.querydsl.entity.QMember.*;
 
 @SpringBootTest
 @Transactional
@@ -23,6 +26,7 @@ class QuerydslApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 		Hello hello = new Hello();
 		em.persist(hello);
 
@@ -36,5 +40,6 @@ class QuerydslApplicationTests {
 		assertThat(result).isEqualTo(hello);
 		assertThat(result.getId()).isEqualTo(hello.getId());
 	}
+
 
 }
